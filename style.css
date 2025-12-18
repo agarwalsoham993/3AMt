@@ -1,0 +1,70 @@
+body { font-family: sans-serif; margin: 0; background: #f0f2f5; height: 100vh; overflow: hidden; }
+
+/* The Feed */
+#message-feed {
+    height: 85vh;
+    overflow-y: scroll;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* The Bubble Style */
+.bubble {
+    background: #007bff;
+    color: white;
+    padding: 15px;
+    border-radius: 20px;
+    max-width: 70%;
+    align-self: flex-start; /* Others' messages on left */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    animation: popIn 0.3s ease-out;
+}
+
+/* The Input Area */
+#input-area {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 15px;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+textarea { width: 80%; padding: 10px; border-radius: 10px; border: 1px solid #ddd; }
+
+/* The "Growing" Preview Bubble */
+#preview-bubble {
+    position: absolute;
+    bottom: 80px; /* Sits on top of input */
+    background: #007bff;
+    color: white;
+    padding: 10px;
+    border-radius: 20px;
+    opacity: 0.8;
+    transition: all 0.2s;
+    max-width: 200px;
+    word-wrap: break-word;
+}
+.hidden { display: none; }
+
+/* The "Shooting" Animation */
+@keyframes shootUp {
+    0% { transform: translateY(0) scale(1); opacity: 1; }
+    100% { transform: translateY(-500px) scale(0.5); opacity: 0; }
+}
+
+.shooting {
+    animation: shootUp 0.6s ease-in forwards;
+}
+
+/* Auth Overlay */
+#auth-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.8); z-index: 999;
+    display: flex; justify-content: center; align-items: center;
+}
+.auth-box { background: white; padding: 30px; border-radius: 10px; text-align: center; }

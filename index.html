@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bubble Chat</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="auth-overlay">
+        <div class="auth-box">
+            <h2>Enter Secret Code</h2>
+            <input type="password" id="passcode-input" placeholder="Passcode">
+            <button onclick="checkPasscode()">Enter</button>
+        </div>
+    </div>
+
+    <div id="app-container" style="display:none;">
+        <div id="message-feed">
+            </div>
+
+        <div id="input-area">
+            <div id="preview-bubble" class="hidden"></div>
+            
+            <div class="controls">
+                <textarea id="text-input" placeholder="Type a message..."></textarea>
+                <button id="record-btn" onmousedown="startRecording()" onmouseup="stopRecording()">🎤</button>
+                <button id="send-btn" onclick="sendMessage()">🚀</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="app.js"></script>
+</body>
+</html>
